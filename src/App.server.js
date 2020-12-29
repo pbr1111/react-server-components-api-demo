@@ -8,12 +8,12 @@
 
 import {Suspense} from 'react';
 
-import Note from './Note.server';
-import NoteList from './NoteList.server';
-import EditButton from './EditButton.client';
-import SearchField from './SearchField.client';
-import NoteSkeleton from './NoteSkeleton';
-import NoteListSkeleton from './NoteListSkeleton';
+import Post from './app/Post.server';
+import PostList from './app/PostList.server';
+import EditButton from './shared/EditButton.client';
+import SearchField from './app/SearchField.client';
+import PostSkeleton from './app/post/PostSkeleton';
+import PostListSkeleton from './app/post-list/PostListSkeleton';
 
 export default function App({selectedId, isEditing, searchText}) {
   return (
@@ -28,21 +28,21 @@ export default function App({selectedId, isEditing, searchText}) {
             alt=""
             role="presentation"
           />
-          <strong>React Notes</strong>
+          <strong>React Posts</strong>
         </section>
         <section className="sidebar-menu" role="menubar">
           <SearchField />
-          <EditButton noteId={null}>New</EditButton>
+          <EditButton postId={null}>New</EditButton>
         </section>
         <nav>
-          <Suspense fallback={<NoteListSkeleton />}>
-            <NoteList searchText={searchText} />
+          <Suspense fallback={<PostListSkeleton />}>
+            <PostList searchText={searchText} />
           </Suspense>
         </nav>
       </section>
-      <section key={selectedId} className="col note-viewer">
-        <Suspense fallback={<NoteSkeleton isEditing={isEditing} />}>
-          <Note selectedId={selectedId} isEditing={isEditing} />
+      <section key={selectedId} className="col post-viewer">
+        <Suspense fallback={<PostSkeleton isEditing={isEditing} />}>
+          <Post selectedId={selectedId} isEditing={isEditing} />
         </Suspense>
       </section>
     </div>

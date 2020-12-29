@@ -6,11 +6,11 @@
  *
  */
 
-import TextWithMarkdown from './TextWithMarkdown';
+import TextWithMarkdown from '../../shared/TextWithMarkdown';
 
-export default function NotePreview({body}) {
+export default function PostPreview({body}) {
   return (
-    <div className="note-preview">
+    <div className="post-preview">
       <TextWithMarkdown text={body} />
     </div>
   );

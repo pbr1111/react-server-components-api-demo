@@ -8,9 +8,9 @@
 
 import {useState, useRef, useEffect, unstable_useTransition} from 'react';
 
-import {useLocation} from './LocationContext.client';
+import {useLocation} from '../../shared/LocationContext.client';
 
-export default function SidebarNote({id, title, children, expandedChildren}) {
+export default function SidebarPost({id, title, children, expandedChildren}) {
   const [location, setLocation] = useLocation();
   const [startTransition, isPending] = unstable_useTransition();
   const [isExpanded, setIsExpanded] = useState(false);
@@ -33,12 +33,12 @@ export default function SidebarNote({id, title, children, expandedChildren}) {
         itemRef.current.classList.remove('flash');
       }}
       className={[
-        'sidebar-note-list-item',
-        isExpanded ? 'note-expanded' : '',
+        'sidebar-post-list-item',
+        isExpanded ? 'post-expanded' : '',
       ].join(' ')}>
       {children}
       <button
-        className="sidebar-note-open"
+        className="sidebar-post-open"
         style={{
           backgroundColor: isPending
             ? 'var(--gray-80)'
@@ -58,10 +58,10 @@ export default function SidebarNote({id, title, children, expandedChildren}) {
             }));
           });
         }}>
-        Open note for preview
+        Open post for preview
       </button>
       <button
-        className="sidebar-note-toggle-expand"
+        className="sidebar-post-toggle-expand"
         onClick={(e) => {
           e.stopPropagation();
           setIsExpanded(!isExpanded);

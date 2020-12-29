@@ -12,9 +12,6 @@
 /build
 /dist
 
-# notes
-notes/*.md
-
 # misc
 .DS_Store
 .eslintcache

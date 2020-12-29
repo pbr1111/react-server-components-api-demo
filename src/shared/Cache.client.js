@@ -33,3 +33,12 @@ export function useServerResponse(location) {
   cache.set(key, response);
   return response;
 }
+
+export function useCache() {
+  const cache = unstable_getCacheForType(createResponseCache);
+  return {
+    clear: function() {
+      cache.clear();
+    },
+  };
+}

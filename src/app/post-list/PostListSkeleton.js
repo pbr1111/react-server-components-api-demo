@@ -6,25 +6,25 @@
  *
  */
 
-export default function NoteListSkeleton() {
+export default function PostListSkeleton() {
   return (
     <div>
-      <ul className="notes-list skeleton-container">
+      <ul className="posts-list skeleton-container">
         <li className="v-stack">
           <div
-            className="sidebar-note-list-item skeleton"
+            className="sidebar-post-list-item skeleton"
             style={{height: '5em'}}
           />
         </li>
         <li className="v-stack">
           <div
-            className="sidebar-note-list-item skeleton"
+            className="sidebar-post-list-item skeleton"
             style={{height: '5em'}}
           />
         </li>
         <li className="v-stack">
           <div
-            className="sidebar-note-list-item skeleton"
+            className="sidebar-post-list-item skeleton"
             style={{height: '5em'}}
           />
         </li>

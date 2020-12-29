@@ -10,10 +10,10 @@ import {unstable_useTransition} from 'react';
 
 import {useLocation} from './LocationContext.client';
 
-export default function EditButton({noteId, children}) {
+export default function EditButton({postId, children}) {
   const [, setLocation] = useLocation();
   const [startTransition, isPending] = unstable_useTransition();
-  const isDraft = noteId == null;
+  const isDraft = postId == null;
   return (
     <button
       className={[
@@ -24,7 +24,7 @@ export default function EditButton({noteId, children}) {
       onClick={() => {
         startTransition(() => {
           setLocation((loc) => ({
-            selectedId: noteId,
+            selectedId: postId,
             isEditing: true,
             searchText: loc.searchText,
           }));

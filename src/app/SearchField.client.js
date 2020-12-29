@@ -8,8 +8,8 @@
 
 import {useState, unstable_useTransition} from 'react';
 
-import {useLocation} from './LocationContext.client';
-import Spinner from './Spinner';
+import {useLocation} from '../shared/LocationContext.client';
+import Spinner from '../shared/Spinner';
 
 export default function SearchField() {
   const [text, setText] = useState('');
@@ -18,7 +18,7 @@ export default function SearchField() {
   return (
     <form className="search" role="search" onSubmit={(e) => e.preventDefault()}>
       <label className="offscreen" htmlFor="sidebar-search-input">
-        Search for a note by title
+        Search for a post by title
       </label>
       <input
         id="sidebar-search-input"
